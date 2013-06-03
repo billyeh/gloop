@@ -21,7 +21,7 @@ points["type"] = "FeatureCollection"
 points["features"] = []
 link = "http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=1&p=1&f=G&l=50&d=PTXT&S1=7663607.PN.&OS=pn/"
 
-for top_patent in [7663607]: # top_patents:
+for top_patent in top_patents:
   current = {}
   current["patent"] = top_patent
   row = patdesc.execute("SELECT Title FROM patdesc WHERE patent=?", ['0' + str(top_patent)]).fetchone()
@@ -42,17 +42,22 @@ for top_patent in [7663607]: # top_patents:
   point["properties"] = {}
   point["properties"]["color"] = "#FFD300"
 
-  for cite in [7711402]: # citations
-    feature = {}
-    feature["type"] = "Feature"
-    feature["geometry"] = {}
-    feature["geometry"]["type"] = "LineString"
-    feature["geometry"]["coordinates"] = [[-75.308372,39.856213], current["location"]] # [[long, lat], current["location"]]
-    feature["properties"] = {}
-    feature["properties"]["citation"] = cite
-    current["collection"]["features"].append(feature)
+  cites = []
+  for row in citations.execute("SELECT ref FROM reffedby WHERE patent=?", [str(top_patent)]):
+    cites.append(row[0])
+  for cite in cites:
+    row = full.execute("SELECT Longitude, Latitude FROM invpat WHERE patent=?", [cite]).fetchone()
+    if row[0] and row[1]:
+      feature = {}
+      feature["type"] = "Feature"
+      feature["geometry"] = {}
+      feature["geometry"]["type"] = "LineString"
+      feature["geometry"]["coordinates"] = [[row[0], row[1]], current["location"]]
+      feature["properties"] = {}
+      feature["properties"]["citation"] = cite
+      current["collection"]["features"].append(feature)
 
-  point["radius"] = round(141 / 20) # no. cites / 20
+  point["radius"] = round(len(cites) / 20)
   points["features"].append(point)
   patents.append(current)
 
