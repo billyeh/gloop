@@ -56,6 +56,15 @@ for top_patent in top_patents:
       feature["properties"] = {}
       feature["properties"]["citation"] = cite
       current["collection"]["features"].append(feature)
+      feature = {}
+      feature["type"] = "Feature"
+      feature["geometry"] = {}
+      feature["geometry"]["type"] = "Point"
+      feature["geometry"]["coordinates"] = [[row[0], row[1]]]
+      feature["properties"] = {}
+      feature["properties"]["color"] = "#FFD300"
+      feature["properties"]["radius"] = 2
+      current["collection"]["features"].append(feature)
 
   point["radius"] = round(len(cites) / 20)
   points["features"].append(point)
