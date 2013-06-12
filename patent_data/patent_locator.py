@@ -26,8 +26,10 @@ for top_patent in top_patents:
   current["patent"] = top_patent
   row = patdesc.execute("SELECT Title FROM patdesc WHERE patent=?", ['0' + str(top_patent)]).fetchone()
   current["title"] = row[0]
-  row = full.execute("SELECT Longitude, Latitude FROM invpat WHERE patent=?", ['0' + str(top_patent)]).fetchone()
+  row = full.execute("SELECT Longitude, Latitude, City, Country FROM invpat WHERE patent=?", ['0' + str(top_patent)]).fetchone()
   current["location"] = [row[0], row[1]]
+  current["city"] = row[2]
+  current["country"] = row[3]
   current["link"] = link + str(top_patent)
 
   current["collection"] = {}
@@ -35,6 +37,7 @@ for top_patent in top_patents:
   current["collection"]["features"] = []
 
   point = {}
+  point["patent"] = top_patent
   point["type"] = "Feature"
   point["geometry"] = {}
   point["geometry"]["type"] = "Point"
