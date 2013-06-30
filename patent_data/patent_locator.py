@@ -63,7 +63,7 @@ for top_patent in top_patents:
       feature["type"] = "Feature"
       feature["geometry"] = {}
       feature["geometry"]["type"] = "Point"
-      feature["geometry"]["coordinates"] = [[row[0], row[1]]]
+      feature["geometry"]["coordinates"] = [row[0], row[1]]
       feature["properties"] = {}
       feature["properties"]["color"] = "#FFD300"
       feature["properties"]["radius"] = 2
@@ -73,5 +73,5 @@ for top_patent in top_patents:
   points["features"].append(point)
   patents.append(current)
 
-print(json.dumps(patents, indent=2, separators=(',', ': ')))
-print(json.dumps(points, indent=2, separators=(',', ': ')))
+open('patents.json', 'w').write(json.dumps(patents, indent=2, separators=(',', ': ')))
+open('points.json', 'w').write(json.dumps(points, indent=2, separators=(',', ': ')))
