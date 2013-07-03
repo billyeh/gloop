@@ -19,9 +19,9 @@ patents = []
 points = {}
 points["type"] = "FeatureCollection"
 points["features"] = []
-link = "http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=1&p=1&f=G&l=50&d=PTXT&S1=7663607.PN.&OS=pn/"
 
 for top_patent in top_patents:
+  link = "http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&u=%2Fnetahtml%2FPTO%2Fsearch-adv.htm&r=1&p=1&f=G&l=50&d=PTXT&S1=7663607.PN.&OS=pn/"
   current = {}
   current["patent"] = top_patent
   row = patdesc.execute("SELECT Title FROM patdesc WHERE patent=?", ['0' + str(top_patent)]).fetchone()
