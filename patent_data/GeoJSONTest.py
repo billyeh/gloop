@@ -1,20 +1,20 @@
 class FeatureCollectionTest:
-  def __init__(this, feature_collection):
-    this.collection = feature_collection
-  def test(this):
-    if (this.collection["type"] != "FeatureCollection"):
+  def __init__(self, feature_collection):
+    self.collection = feature_collection
+  def test(self):
+    if (self.collection["type"] != "FeatureCollection"):
       print("Collection type should be FeatureCollection")
-    if ("features" in this.collection and type(this.collection["features"]) != list):
+    if ("features" in self.collection and type(self.collection["features"]) != list):
       print("Collection features should be list")
-    for f in this.collection["features"]:
+    for f in self.collection["features"]:
       feature = FeatureTest(f)
       feature.test()
 
 class FeatureTest:
-  def __init__(this, f):
-    this.feature = f
-  def test(this):
-    if ("type" not in this.feature or this.feature["type"] not in ["Point",
+  def __init__(self, f):
+    self.feature = f
+  def test(self):
+    if ("type" not in self.feature or self.feature["type"] not in ["Point",
                                                                   "Multipoint",
                                                                   "LineString",
                                                                   "MultiLineString",
@@ -24,52 +24,52 @@ class FeatureTest:
                                                                   "Feature",
                                                                   "FeatureCollection"]):
       print("Feature type should be one of the valid ones")
-    if ("geometry" not in this.feature):
+    if ("geometry" not in self.feature):
       print("Feature needs geometry")
       return
-    if (type(this.feature["geometry"]) != dict):
+    if (type(self.feature["geometry"]) != dict):
       print("Feature's geometry needs to be an object")
       return
-    if (this.feature["type"] != "GeometryCollection"):
-      if ("coordinates" not in this.feature["geometry"]):
+    if (self.feature["type"] != "GeometryCollection"):
+      if ("coordinates" not in self.feature["geometry"]):
         print("Feature must have a coordinates array")
         return
-      if (type(this.feature["geometry"]["coordinates"]) != list):
+      if (type(self.feature["geometry"]["coordinates"]) != list):
         print("Feature's coordinates must be a list")
         return
 
-    if "type" not in this.feature["geometry"]:
+    if "type" not in self.feature["geometry"]:
       print("Geometry must have type")
-    if this.feature["geometry"]["type"] == "Point":
-      _PointTest(this.feature).test()
-    if this.feature["geometry"]["type"] == "Multipoint":
-      _MultipointTest(this.feature).test()
-    if this.feature["geometry"]["type"] == "LineString":
-      _LineStringTest(this.feature).test()
-    if this.feature["geometry"]["type"] == "MultiLineString":
-      _MultiLineStringTest(this.feature).test()
+    if self.feature["geometry"]["type"] == "Point":
+      _PointTest(self.feature).test()
+    if self.feature["geometry"]["type"] == "Multipoint":
+      _MultipointTest(self.feature).test()
+    if self.feature["geometry"]["type"] == "LineString":
+      _LineStringTest(self.feature).test()
+    if self.feature["geometry"]["type"] == "MultiLineString":
+      _MultiLineStringTest(self.feature).test()
 
 
 class _Feature:
-  def __init__(this, f):
-    this.feature = f
-    this.coordinates = this.feature["geometry"]["coordinates"]
+  def __init__(self, f):
+    self.feature = f
+    self.coordinates = self.feature["geometry"]["coordinates"]
 
 class _PointTest(_Feature):
-  def test(this):
-    _are_coordinates(this.coordinates)
+  def test(self):
+    _are_coordinates(self.coordinates)
 
 class _MultipointTest(_Feature):
-  def test(this):
-    _is_coordinate_array(this.coordinates)
+  def test(self):
+    _is_coordinate_array(self.coordinates)
 
 class _LineStringTest(_Feature):
-  def test(this):
-    _is_coordinate_array(this.coordinates)
+  def test(self):
+    _is_coordinate_array(self.coordinates)
 
 class _MultiLineStringTest(_Feature):
-  def test(this):
-    for c in this.coordinates:
+  def test(self):
+    for c in self.coordinates:
       _is_coordinate_array(c)
 
 def _is_num(number):
