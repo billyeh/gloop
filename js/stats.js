@@ -28,7 +28,7 @@ d3.json('./patent_data/points.json', function (data) {
         .selectAll('span')
         .data(data.features)
       .enter().append('span')
-        .attr()
+        .attr('class', 'patent-subheader')
         .text(function(d, i) {return '' + (i + 1) + '. ' + d.patent;});
 });
 

@@ -1,0 +1,14 @@
+/**********
+ SVG Styles
+ **********/
+path {
+  fill: none;
+  stroke: #FFD300;
+}
+
+/***********
+ Main Styles
+ ***********/
+.patent-subheader {
+  padding-right: 10px;
+}
