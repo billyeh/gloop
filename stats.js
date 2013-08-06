@@ -20,7 +20,7 @@ d3.json("./patent_data/patents.json", function (data) {
         svg.append("path")
               .datum(data[i].collection)
               .attr("d", path)
-              .style("fill", "FFD300");
+              .style("fill", "#FFD300");
     }
 });
 d3.json("./patent_data/points.json", function (data) {

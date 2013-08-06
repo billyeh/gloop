@@ -24,7 +24,7 @@ d3.json("./patent_data/points.json", function (data) {
         .style("stroke", "#222")
         .attr("class", function(d) {return d.patent;})
         .attr("transform", function(d) {return "translate(" + coordinates(d.geometry.coordinates) + ")";});
-  d3.select(".container")
+  d3.select("#patent-header")
         .selectAll("p")
         .data(data.features)
       .enter().append("p")
@@ -45,7 +45,7 @@ d3.json("./patent_data/patents.json", function (data) {
       else if (features[j].geometry.type === "LineString") {
         svg.append("path")
             .attr("d", path(features[j]))
-            .style("stroke", "FFD300");
+            .style("stroke", "#FFD300");
       }
     }
   }
