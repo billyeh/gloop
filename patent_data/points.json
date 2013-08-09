@@ -1,0 +1,155 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "patent": 7663607,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.891128,
+          37.330413
+        ]
+      },
+      "radius": 7.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7674650,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.933333,
+          34.8
+        ]
+      },
+      "radius": 4.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7665646,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.826674,
+          41.458768
+        ]
+      },
+      "radius": 4.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7680184,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.751389,
+          35.685
+        ]
+      },
+      "radius": 4.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7732819,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.933333,
+          34.8
+        ]
+      },
+      "radius": 4.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7657297,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.232665,
+          32.96187
+        ]
+      },
+      "radius": 4.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7654956,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.263733,
+          33.055326
+        ]
+      },
+      "radius": 4.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7665051,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.583333,
+          48.15
+        ]
+      },
+      "radius": 3.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7711402,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.324921,
+          43.098373
+        ]
+      },
+      "radius": 3.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    },
+    {
+      "patent": 7770144,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.891128,
+          37.330413
+        ]
+      },
+      "radius": 3.0,
+      "type": "Feature",
+      "properties": {
+        "color": "#FFD300"
+      }
+    }
+  ]
+}
